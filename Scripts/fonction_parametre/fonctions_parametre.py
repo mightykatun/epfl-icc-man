@@ -10,7 +10,7 @@ y_t1 = lambda t: 1 - t**2
 y_t2 = lambda t: -2*t
 
 t1_range = np.linspace(-2, 2, 1000)
-t2_range = np.linspace(-2, 2, 100)
+t2_range = np.linspace(-2, 2, 75)
 
 ### plot
 
