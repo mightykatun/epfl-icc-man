@@ -1,3 +1,7 @@
+'''
+Format values into the clipboard to paste into an Excel document as a column
+'''
+
 from tkinter import Tk
 while True:
     table = input('variable name: ') + ' = ['
