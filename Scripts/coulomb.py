@@ -6,7 +6,8 @@ e_0 = 8.85e-12
 e = 1.602e-19
 
 
-f_coulomb = lambda x, y, coor: 1 / (4 * np.pi * e_0) * e**2 / np.exp((x-coor[0])**2 + (y-coor[1])**2) # assuming particle is centered on coor, taking the exponential of the distance to not jump to infty
+field = lambda x, y, coor: 1 / (4 * np.pi * e_0) * e / np.exp((x-coor[0])**2 + (y-coor[1])**2) # assuming particle is centered on coor, taking the exponential of the distance to not jump to infty
+# note that this is not the force felt by a second particle of arbitrary charge Q, this is the electrical field E
 
 array = np.linspace(-5, 5, 100)
 
@@ -14,11 +15,12 @@ array = np.linspace(-5, 5, 100)
 p_list = [
 	(0, 0),
 	(2, 3),
-	(0, 1.5)
+	(0, 1.5),
+	(-3, -3)
 	]
 
 x, y = np.meshgrid(array, array)
-z = sum([f_coulomb(x, y, coor) for coor in p_list])
+z = sum([field(x, y, coor) for coor in p_list])
 
 # the plot shows the combined effect of all those particles on a virtual particle of charge e, at every point of the grid
 fig = plt.figure()
