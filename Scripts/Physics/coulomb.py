@@ -23,8 +23,6 @@ x, y = np.meshgrid(array, array)
 z = sum([field(x, y, coor) for coor in p_list])
 
 # the plot shows the combined effect of all those particles on a virtual particle of charge e, at every point of the grid
-fig = plt.figure()
 ax = plt.axes(projection='3d')
-
 ax.plot_surface(x, y, z, cmap='viridis')
 plt.show()
