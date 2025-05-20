@@ -6,17 +6,17 @@ e_0 = 8.85e-12
 e = 1.602e-19
 
 
-field = lambda x, y, coor: 1 / (4 * np.pi * e_0) * e / np.exp((x-coor[0])**2 + (y-coor[1])**2) # assuming particle is centered on coor, taking the exponential of the distance to not jump to infty
+field = lambda x, y, coor: 1 / (4 * np.pi * e_0) * coor[2] / np.exp((x-coor[0])**2 + (y-coor[1])**2) # assuming particle is centered on coor, taking the exponential of the distance to not jump to infty
 # note that this is not the force felt by a second particle of arbitrary charge Q, this is the electrical field E
 
 array = np.linspace(-5, 5, 100)
 
 # list of particles that influence the field
 p_list = [
-	(0, 0),
-	(2, 3),
-	(0, 1.5),
-	(-3, -3)
+	(0, 0, e),
+	(2, 3, 2*e),
+	(0, 1.5, -e),
+	(-3, -3, -4*e)
 	]
 
 x, y = np.meshgrid(array, array)

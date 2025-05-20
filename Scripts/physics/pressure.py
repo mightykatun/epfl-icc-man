@@ -16,7 +16,7 @@ rho_eau = 1       # density of water
 air_p = 101325        # atmospheric pressure (Pa)
 g = 9.81
 
-npoints = 10000  # number of vertical steps
+npoints = 1000  # number of vertical steps
 
 # Create an array for depths from 0 (surface) to -2 m (bottom)
 depths = np.linspace(0, -2, npoints)
@@ -45,6 +45,7 @@ P = np.tile(pressure.reshape(-1, 1), (1, npoints))
 fig, ax = plt.subplots(figsize=(width, width*ratio))
 # Using 'extent' sets the axes to show x from 0 to 1 and depth from -2 to 0
 c = ax.imshow(P, cmap='Blues', interpolation='nearest', extent=[0, 1, -2, 0], aspect='auto')
+ax.hlines(-1, 0, 1, color='red', linestyle='--')
 ax.set_xlabel("x (m)")
 ax.set_ylabel("Depth (m)")
 ax.set_title("Pressure Distribution in Container")
