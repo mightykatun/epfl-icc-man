@@ -3,5 +3,3 @@ Collection of the class notes and exercices of the ICC Class for EPFL MAN 2025\
 There are some extra exercices in `./scripts`, related to other classes
 
 Give the repo a star if it helps you out!
-
-![](./Scripts/Physics/electricity/charges.png)
